@@ -111,7 +111,7 @@ function bpm_tap(ts=-1){
         taps = []
         hit = 0
         document.getElementById('input_bpm').innerHTML = `0<br>bpm`;
-        document.getElementById('input_speed').innerHTML = `0<br>m/s`;
+        document.getElementById('input_speed').innerHTML = `0<br>м/с`;
         document.getElementById('tap_viz').innerHTML = ""
     }
     document.getElementById('tap_viz').innerHTML += (hit == 0 ? " ." : ".")
@@ -125,7 +125,7 @@ function bpm_clear() {
     taps = []
     bpm_list = []
     document.getElementById('input_bpm').innerHTML = `0<br>bpm`;
-    document.getElementById('input_speed').innerHTML = `0<br>m/s`;
+    document.getElementById('input_speed').innerHTML = `0<br>м/с`;
     document.getElementById('tap_viz').innerHTML = ""
     var ghosts = document.getElementsByClassName("ghost_card")
     for (var i = 0; i < ghosts.length; i++){
@@ -173,7 +173,7 @@ function bpm_calc(forced=false) {
         var av_ms = get_ms(input_bpm)
         input_ms = document.getElementById("bpm_type").checked ? av_ms : ex_ms
         document.getElementById('input_bpm').innerHTML = `${Math.round(input_bpm)}<br>bpm`;
-        document.getElementById('input_speed').innerHTML = `${input_ms}<br>m/s`;
+        document.getElementById('input_speed').innerHTML = `${input_ms}<br>м/с`.replace(".",",");
         
         try{
             mark_ghosts(input_ms)
@@ -220,7 +220,7 @@ function mark_ghost_details(ms)
         var speed_tab = document.getElementById(`${additional_ghost_data[g]}_speed_breakdown`)
         for (var i = 1, row; row = speed_tab.rows[i]; i++){
             $(row).removeClass("row_select")
-            var speed = parseFloat(row.getElementsByClassName(`${additional_ghost_data[g]}_speed_item`)[0].textContent.replace(" m/s",""))
+            var speed = parseFloat(row.getElementsByClassName(`${additional_ghost_data[g]}_speed_item`)[0].textContent.replace(" м/с",""))
             if(((speed - additional_ghost_var[g]) <= ms && ms <= (speed + additional_ghost_var[g]))){
                 $(row).addClass("row_select")
                 $("#guide_tab_footstep").show()
@@ -256,16 +256,16 @@ function mark_ghosts(ms){
             }
 
             // Get min and max
-            var min_speed = parseFloat(speeds[0].replaceAll(" m/s",""))
+            var min_speed = parseFloat(speeds[0].replaceAll(" м/с",""))
             if (speeds.length > 1){
-                var max_speed = parseFloat(speeds[1].replaceAll(" m/s",""))
+                var max_speed = parseFloat(speeds[1].replaceAll(" м/с",""))
             }
             else{
                 var max_speed = min_speed
             }
 
             if(document.getElementById("bpm_type").checked){
-                if ((speed_type == "range" && min_speed <= ms && ms <= max_speed) || name == "The Mimic"){
+                if ((speed_type == "range" && min_speed <= ms && ms <= max_speed) || name == "Мимик"){
                     ghosts[i].style.boxShadow = '0px 0px 10px 0px #dbd994'
                     bpm_list.push(ghosts[i].id)
                 }
@@ -275,7 +275,7 @@ function mark_ghosts(ms){
                 }
             }
             else{
-                if ((speed_type == "range" && (min_speed - 0.05) <= ms && ms <= (max_speed + 0.05)) || name == "The Mimic"){
+                if ((speed_type == "range" && (min_speed - 0.05) <= ms && ms <= (max_speed + 0.05)) || name == "Мимик"){
                     ghosts[i].style.boxShadow = '0px 0px 10px 0px #dbd994'
                     bpm_list.push(ghosts[i].id)
                 }

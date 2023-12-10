@@ -27,4 +27,5 @@ NOTE: By using this code, you agree to not use any included, external URLs prese
 
 With the exception of:  
 JQuery - MIT License  
-October Crow Font - Custom License
+Troubleside Font - SIL Open Font License (OFL)
+Correction Font - SIL Open Font License (OFL)

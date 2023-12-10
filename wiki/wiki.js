@@ -21,13 +21,13 @@ let ghost_flicker_data = {
         "invis_max":1.0,
         "invis_min":0.3
     },
-    "Phantom":{
+    "Фантом":{
         "vis_max":0.3,
         "vis_min":0.08,
         "invis_max":2.0,
         "invis_min":1.0
     },
-    "Oni":{
+    "Они":{
         "vis_max":1.0,
         "vis_min":0.3,
         "invis_max":0.3,

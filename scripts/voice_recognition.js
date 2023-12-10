@@ -151,7 +151,7 @@ function parse_speech(vtext){
         vtext = vtext.replace('ghost', "").trim()
         domovoi_msg += "marked "
 
-        var smallest_ghost = "Spirit"
+        var smallest_ghost = "Дух"
         var smallest_val = 100
         var vvalue = 0
         if(vtext.startsWith("not ") || vtext.startsWith("knot ") || vtext.startsWith("knight ")|| vtext.startsWith("night ")){

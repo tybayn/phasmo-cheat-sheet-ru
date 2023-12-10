@@ -1,8 +1,8 @@
 function getCookie(e){let t=e+"=",i=decodeURIComponent(document.cookie).split(";");for(let n=0;n<i.length;n++){let o=i[n];for(;" "==o.charAt(0);)o=o.substring(1);if(0==o.indexOf(t))return o.substring(t.length,o.length)}return""}
 function setCookie(e,t,i){let n=new Date;n.setTime(n.getTime()+864e5*i);let o="expires="+n.toUTCString();document.cookie=e+"="+t+";"+o+";path=/"}
 
-const all_evidence = ["DOTs","EMF 5","Ultraviolet","Freezing","Ghost Orbs","Writing","Spirit Box"]
-const all_ghosts = ["Spirit","Wraith","Phantom","Poltergeist","Banshee","Jinn","Mare","Revenant","Shade","Demon","Yurei","Oni","Yokai","Hantu","Goryo","Myling","Onryo","The Twins","Raiju","Obake","The Mimic","Moroi","Deogen","Thaye"]
+const all_evidence = ["Проектор","ЭМП 5","Ультрафиолет","Минусовая","Приз.Огонёк","Записи","Радиоприёмник"]
+const all_ghosts = ["Дух","Мираж","Фантом","Полтергейст","Банши","Джинн","Мара","Ревенант","Тень","Демон","Юрэй","Они","Ёкай","Ханту","Горё","Мюлинг","Онрё","Близнецы","Райдзю","Обакэ","Мимик","Морой","Деоген","Тайэ"]
 const all_speed = ["Slow","Normal","Fast"]
 const all_sanity = ["Late","Average","Early","VeryEarly"]
 let bpm_list = []
@@ -400,11 +400,11 @@ function filter(ignore_link=false){
             parseInt(ghosts[i].getElementsByClassName("ghost_hunt_low")[0].textContent),
             parseInt(ghosts[i].getElementsByClassName("ghost_hunt_high")[0].textContent)
         ]
-        if (name == "The Mimic"){
-            evidence.push("Ghost Orbs")
+        if (name == "Мимик"){
+            evidence.push("Приз.Огонёк")
             mimic_evi = evidence
-            nm_evidence = "Ghost Orbs"
-            mimic_nm_evi = "Ghost Orbs"
+            nm_evidence = "Приз.Огонёк"
+            mimic_nm_evi = "Приз.Огонёк"
         }
 
         //Check for monkey paw filter
@@ -413,7 +413,7 @@ function filter(ignore_link=false){
         }
 
         //Check for los filter
-        if (name != "The Mimic" && speed_has_los != -1 && speed_has_los != has_los){
+        if (name != "Мимик" && speed_has_los != -1 && speed_has_los != has_los){
             loskeep = false
         }
         
@@ -442,7 +442,7 @@ function filter(ignore_link=false){
         else if (num_evidences == "2"){
 
 
-            if (evi_array.length == 3 && name != "The Mimic"){
+            if (evi_array.length == 3 && name != "Мимик"){
                 keep = false
             }
             else if (evi_array.length > 0){
@@ -471,7 +471,7 @@ function filter(ignore_link=false){
         // Insanity
         else if (num_evidences == "1"){
 
-            if (evi_array.length == 2 && name != "The Mimic"){
+            if (evi_array.length == 2 && name != "Мимик"){
                 keep = false
             }
             else if (evi_array.length > 0){
@@ -500,11 +500,11 @@ function filter(ignore_link=false){
         // Apocalypse
         else if (num_evidences == "0"){
 
-            if (evi_array.length > 0 && name != "The Mimic"){
+            if (evi_array.length > 0 && name != "Мимик"){
                 keep = false
             }
 
-            if (not_evi_array.length > 0 && name == "The Mimic"){
+            if (not_evi_array.length > 0 && name == "Мимик"){
                 keep = false
             }
         }
@@ -525,9 +525,9 @@ function filter(ignore_link=false){
         }
 
         // Get min and max
-        var min_speed = parseFloat(speeds[0].replaceAll(" m/s",""))
+        var min_speed = parseFloat(speeds[0].replace(",",".").replaceAll(" м/с",""))
         if (speeds.length > 1){
-            var max_speed = parseFloat(speeds[1].replaceAll(" m/s",""))
+            var max_speed = parseFloat(speeds[1].replace(",",".").replaceAll(" м/с",""))
         }
         else{
             var max_speed = min_speed
@@ -544,9 +544,9 @@ function filter(ignore_link=false){
         if (spe_array.length > 0){
             var skeep = false,nkeep = false,fkeep = false;
 
-            var shas = (min_speed < base_speed || name == "The Mimic")
-            var nhas = (speed_type == "or" && (min_speed === base_speed || max_speed === base_speed || name == "The Mimic")) || (speed_type == "range" && min_speed <= base_speed && base_speed <= max_speed)
-            var fhas = (max_speed > base_speed || name == "The Mimic")
+            var shas = (min_speed < base_speed || name == "Мимик")
+            var nhas = (speed_type == "or" && (min_speed === base_speed || max_speed === base_speed || name == "Мимик")) || (speed_type == "range" && min_speed <= base_speed && base_speed <= max_speed)
+            var fhas = (max_speed > base_speed || name == "Мимик")
 
             spe_array.forEach(function (item,index){
 
@@ -578,14 +578,14 @@ function filter(ignore_link=false){
 
         // Check if speed is being kept
         if (keep && loskeep){
-            if(min_speed < base_speed || name == "The Mimic"){
+            if(min_speed < base_speed || name == "Мимик"){
                 keep_speed.add('Slow')
                 if (marked_not)
                     fade_speed.add('Slow')
                 else
                     not_fade_speed.add('Slow')
             }
-            if ((speed_type == "range" && min_speed <= base_speed && base_speed <= max_speed) || name == "The Mimic"){
+            if ((speed_type == "range" && min_speed <= base_speed && base_speed <= max_speed) || name == "Мимик"){
                 keep_speed.add('Normal')
                 if (marked_not)
                     fade_speed.add('Normal')
@@ -599,7 +599,7 @@ function filter(ignore_link=false){
                 else
                     not_fade_speed.add('Normal')
             }
-            if(max_speed > base_speed || name == "The Mimic"){
+            if(max_speed > base_speed || name == "Мимик"){
                 keep_speed.add('Fast')
                 if (marked_not)
                     fade_speed.add('Fast')
@@ -778,7 +778,7 @@ function filter(ignore_link=false){
     }
 
     else if (num_evidences == "0"){
-        all_evidence.filter(evi => evi != 'Ghost Orbs').forEach(function(item){
+        all_evidence.filter(evi => evi != 'Приз.Огонёк').forEach(function(item){
             var checkbox = document.getElementById(item);
             $(checkbox).addClass("block")
             $(checkbox).find("#checkbox").removeClass(["good","bad","faded"])
@@ -999,17 +999,17 @@ function showVoiceInfo(){
 
 function showSettings(){
     mquery = window.matchMedia("screen and (pointer: coarse) and (max-device-width: 600px)")
-    if (document.getElementById("settings_box").style.left == (mquery.matches ? "calc(-60% - 40px)" : "-32px")){
+    if (document.getElementById("settings_box").style.left == (mquery.matches ? "calc(-60% - 40px)" : "-17px")){
         document.getElementById("settings_box").style.boxShadow = "5px 0px 10px 0px #000"
         document.getElementById("settings_tab").style.boxShadow = "-6px 5px 5px -2px #000"
         document.getElementById("event_box").style.zIndex= "1"
         document.getElementById("wiki_box").style.zIndex= "1"
         document.getElementById("maps_box").style.zIndex= "1"
         document.getElementById("settings_box").style.zIndex = (mquery.matches ? "10" : "2")
-        document.getElementById("settings_box").style.left = (mquery.matches ? "0px" : "196px")
+        document.getElementById("settings_box").style.left = (mquery.matches ? "0px" : "211px")
     }
     else {
-        document.getElementById("settings_box").style.left = (mquery.matches ? "calc(-60% - 40px)" : "-32px")
+        document.getElementById("settings_box").style.left = (mquery.matches ? "calc(-60% - 40px)" : "-17px")
         document.getElementById("settings_box").style.boxShadow = "none"
         document.getElementById("settings_tab").style.boxShadow = "none"
         if(mquery.matches){
@@ -1023,17 +1023,17 @@ function showSettings(){
 
 function showEvent(){
     mquery = window.matchMedia("screen and (pointer: coarse) and (max-device-width: 600px)")
-    if (document.getElementById("event_box").style.left == (mquery.matches ? "calc(-60% - 40px)" : "-182px")){
+    if (document.getElementById("event_box").style.left == (mquery.matches ? "calc(-60% - 40px)" : "-167px")){
         document.getElementById("event_box").style.boxShadow = "5px 0px 10px 0px #000"
         document.getElementById("event_tab").style.boxShadow = "-6px 5px 5px -2px #000"
         document.getElementById("settings_box").style.zIndex = "1"
         document.getElementById("wiki_box").style.zIndex= "1"
         document.getElementById("maps_box").style.zIndex= "1"
         document.getElementById("event_box").style.zIndex= (mquery.matches ? "10" : "2")
-        document.getElementById("event_box").style.left = (mquery.matches ? "0px" : "196px")
+        document.getElementById("event_box").style.left = (mquery.matches ? "0px" : "211px")
     }
     else {
-        document.getElementById("event_box").style.left = (mquery.matches ? "calc(-60% - 40px)" : "-182px")
+        document.getElementById("event_box").style.left = (mquery.matches ? "calc(-60% - 40px)" : "-167px")
         document.getElementById("event_box").style.boxShadow = "none"
         document.getElementById("event_tab").style.boxShadow = "none"
         if(mquery.matches){
@@ -1047,17 +1047,17 @@ function showEvent(){
 
 function showWiki(){
     mquery = window.matchMedia("screen and (pointer: coarse) and (max-device-width: 600px)")
-    if (document.getElementById("wiki_box").style.left == (mquery.matches ? "calc(-60% - 40px)" : "-182px")){
+    if (document.getElementById("wiki_box").style.left == (mquery.matches ? "calc(-60% - 40px)" : "-167px")){
         document.getElementById("wiki_box").style.boxShadow = "5px 0px 10px 0px #000"
         document.getElementById("wiki_tab").style.boxShadow = "-6px 5px 5px -2px #000"
         document.getElementById("settings_box").style.zIndex = "1"
         document.getElementById("event_box").style.zIndex= "1"
         document.getElementById("maps_box").style.zIndex= "1"
         document.getElementById("wiki_box").style.zIndex= (mquery.matches ? "10" : "2")
-        document.getElementById("wiki_box").style.left = (mquery.matches ? "0px" : "196px")
+        document.getElementById("wiki_box").style.left = (mquery.matches ? "0px" : "211px")
     }
     else {
-        document.getElementById("wiki_box").style.left = (mquery.matches ? "calc(-60% - 40px)" : "-182px")
+        document.getElementById("wiki_box").style.left = (mquery.matches ? "calc(-60% - 40px)" : "-167px")
         document.getElementById("wiki_box").style.boxShadow = "none"
         document.getElementById("wiki_tab").style.boxShadow = "none"
         if(mquery.matches){
@@ -1076,19 +1076,19 @@ function showMaps(forceOpen = false, forceClose = false){
         return
     }
 
-    if (document.getElementById("maps_box").style.left == "-388px" && !forceClose){
+    if (document.getElementById("maps_box").style.left == "-373px" && !forceClose){
         document.getElementById("maps_box").style.boxShadow = "5px 0px 10px 0px #000"
         document.getElementById("maps_box").style.boxShadow = "-6px 5px 5px -2px #000"
         document.getElementById("settings_box").style.zIndex = "1"
         document.getElementById("event_box").style.zIndex= "1"
         document.getElementById("wiki_box").style.zIndex= "1"
         document.getElementById("maps_box").style.zIndex= "2"
-        document.getElementById("maps_box").style.left = "196px"
-        document.getElementById("maps_box").style.width = "calc(100% - 256px)"
+        document.getElementById("maps_box").style.left = "211px"
+        document.getElementById("maps_box").style.width = "calc(100% - 271px)"
     }
     else if(!forceOpen) {
         document.getElementById("maps_box").style.width = "556px"
-        document.getElementById("maps_box").style.left = "-388px"
+        document.getElementById("maps_box").style.left = "-373px"
         document.getElementById("maps_box").style.boxShadow = "none"
         document.getElementById("maps_box").style.boxShadow = "none"
     }
@@ -1155,7 +1155,7 @@ function loadSettings(){
     if ((user_settings['bpm'] ?? 0) > 0){
         document.getElementById('input_bpm').innerHTML = `${user_settings['bpm']}<br>bpm`
         var cms = document.getElementById("bpm_type").checked ? get_ms(user_settings['bpm']) : get_ms_exact(user_settings['bpm'])
-        document.getElementById('input_speed').innerHTML = `${cms}<br>m/s`;
+        document.getElementById('input_speed').innerHTML = `${cms}<br>м/с`.replace(".",",");
         try{
             mark_ghosts(cms)
         } catch(Error){

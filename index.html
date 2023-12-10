@@ -171,7 +171,7 @@
                 <span>AND</span>
             </div>
             <hr>
-            <div class="modifier_volume yfont white">BPM to m/s</div>
+            <div class="modifier_volume yfont white">BPM to м/с</div>
             <div class="speed_logic_select">
                 <span>Exact</span>
                 <label for="bpm_type" onchange="bpm_calc(true);saveSettings();">
@@ -285,8 +285,8 @@
                     <div class="timer_block">
                         <div class="modifier_smudge_timer yfont white" onclick="toggle_timer()">Smudge Timer</div>
                         <div class="line_labels" onclick="toggle_timer();send_timer();">
-                            <div class="spirit_line_label">Spirit</div>
-                            <div class="demon_line_label">Demon</div>
+                            <div class="spirit_line_label">Дух</div>
+                            <div class="demon_line_label">Демон</div>
                         </div>
                         <div id="progress" onclick="toggle_timer();send_timer();">
                             <img src="imgs/play.png" id="play_button" class="play_button">
@@ -306,7 +306,7 @@
                     <div class="timer_block">
                         <div class="modifier_smudge_timer yfont white" onclick="toggle_cooldown_timer()">Cooldown Timer</div>
                         <div class="line_labels" onclick="toggle_cooldown_timer();send_cooldown_timer();">
-                            <div class="cooldown_demon_line_label">Demon</div>
+                            <div class="cooldown_demon_line_label">Демон</div>
                         </div>
                         <div id="cooldownProgress" onclick="toggle_cooldown_timer();send_cooldown_timer();">
                             <img src="imgs/play.png" id="play_cooldown_button" class="play_button">
@@ -350,7 +350,7 @@
                     <button id="tap" class="yfont" onclick="bpm_tap()">
                         <div id="input_bpm">0<br>bpm</div>
                         <div>Tap<div class="tap_note">(or press 'F')</div></div>
-                        <div id="input_speed">0<br>m/s</div>
+                        <div id="input_speed">0<br>м/с</div>
                     </button>
                     <div id="tap_viz"></div>
                     <div class="modifier_note_2">(Press 'R' to reset)</div>
@@ -358,7 +358,7 @@
             </div>
             <div id="filter-content" class="filter-content">
                 <div class="evidence_title yfont white">
-                    Evidence <select name="num_evidence" id="num_evidence" class="num_evidence" onchange="filter();flashMode();saveSettings();">
+                    Улика <select name="num_evidence" id="num_evidence" class="num_evidence" onchange="filter();flashMode();saveSettings();">
                         <option value="3">3</option>
                         <option value="2">2</option>
                         <option value="1">1</option>
@@ -440,10 +440,10 @@
             document.getElementById("maps_box").style.left = "calc(-60% - 40px)";
         }
         else{
-            document.getElementById("settings_box").style.left = "-32px";
-            document.getElementById("event_box").style.left = "-182px";
-            document.getElementById("wiki_box").style.left = "-182px";
-            document.getElementById("maps_box").style.left = "-388px";
+            document.getElementById("settings_box").style.left = "-17px";
+            document.getElementById("event_box").style.left = "-167px";
+            document.getElementById("wiki_box").style.left = "-167px";
+            document.getElementById("maps_box").style.left = "-373px";
         }
     </script>
     <script src="scripts/metronome.js"></script>

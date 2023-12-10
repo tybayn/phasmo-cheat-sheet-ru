@@ -1,29 +1,29 @@
 evi_color = {
-    "EMF 5": "#db4d48",
-    "DOTs": "#2ccc29",
-    "Ultraviolet": "#ad8ce7",
-    "Freezing": "#9ae0f7",
-    "Ghost Orbs": "#dbd993",
-    "Writing": "#4d8ce3",
-    "Spirit Box": "#d18c5e", 
+    "ЭМП 5": "#db4d48",
+    "Проектор": "#2ccc29",
+    "Ультрафиолет": "#ad8ce7",
+    "Минусовая": "#9ae0f7",
+    "Приз.Огонёк": "#dbd993",
+    "Записи": "#4d8ce3",
+    "Радиоприёмник": "#d18c5e", 
 }
 
 evi_icons = {
-    "EMF 5": "imgs/emf5-icon.png",
-    "DOTs": "imgs/dots-icon.png",
-    "Ultraviolet": "imgs/fingerprints-icon.png",
-    "Freezing": "imgs/freezing-icon.png",
-    "Ghost Orbs": "imgs/orbs-icon.png",
-    "Writing": "imgs/writing-icon.png",
-    "Spirit Box": "imgs/spirit-box-icon.png", 
+    "ЭМП 5": "imgs/emf5-icon.png",
+    "Проектор": "imgs/dots-icon.png",
+    "Ультрафиолет": "imgs/fingerprints-icon.png",
+    "Минусовая": "imgs/freezing-icon.png",
+    "Приз.Огонёк": "imgs/orbs-icon.png",
+    "Записи": "imgs/writing-icon.png",
+    "Радиоприёмник": "imgs/spirit-box-icon.png", 
 }
 
 behavior_titles = {
-    "<Tells>":"<div class='dtitle'><i>Tells</i><div class='ddash'></div></div>",
-    "<Behaviors>":"<div class='dtitle'><i>Behaviors</i><div class='ddash'></div></div>",
-    "<Hunt Sanity>":"<div class='dtitle'><i>Hunt Sanity</i><div class='ddash'></div></div>",
-    "<Hunt Speed>":"<div class='dtitle'><i>Hunt Speed</i><div class='ddash'></div></div>",
-    "<Evidence>":"<div class='dtitle'><i>Evidence</i><div class='ddash'></div></div>"
+    "<Особенности>":"<div class='dtitle'><i>Особенности</i><div class='ddash'></div></div>",
+    "<Поведение>":"<div class='dtitle'><i>Поведение</i><div class='ddash'></div></div>",
+    "<Охота и Рассудок>":"<div class='dtitle'><i>Охота и Рассудок</i><div class='ddash'></div></div>",
+    "<Охота и Скорость>":"<div class='dtitle'><i>Охота и Скорость</i><div class='ddash'></div></div>",
+    "<Улика>":"<div class='dtitle'><i>Улика</i><div class='ddash'></div></div>"
 }
 
 class Ghost {
@@ -48,7 +48,7 @@ class Ghost {
                     <div class="ghost_speed">
                         <img src="imgs/footsteps.png">
                         <div class="ghost_speed_values">
-                            ${this.toNumStr(data.min_speed)} <span class="ms">m/s</span> <span class="sound" onclick="toggleSound(${data.min_speed},'${data.ghost}0')">&#128266;</span>${data.max_speed == null ? '' : data.speed_is_range?' - ':' | '}${data.max_speed == null ? '' : this.toNumStr(data.max_speed)+' <span class="ms">m/s</span> <span class="sound" onclick="toggleSound('+data.max_speed+',\''+data.ghost+'1\')">&#128266;</span>'}${data.alt_speed == null ? '' : '<br>('+this.toNumStr(data.alt_speed)+' <span class="ms">m/s</span> <span class="sound" onclick="toggleSound('+data.alt_speed+',\''+data.ghost+'2\')">&#128266;</span>)'}
+                            ${this.toNumStr(data.min_speed)} <span class="ms">м/с</span> <span class="sound" onclick="toggleSound(${data.min_speed},'${data.ghost}0')">&#128266;</span>${data.max_speed == null ? '' : data.speed_is_range?' - ':' | '}${data.max_speed == null ? '' : this.toNumStr(data.max_speed)+' <span class="ms">м/с</span> <span class="sound" onclick="toggleSound('+data.max_speed+',\''+data.ghost+'1\')">&#128266;</span>'}${data.alt_speed == null ? '' : '<br>('+this.toNumStr(data.alt_speed)+' <span class="ms">м/с</span> <span class="sound" onclick="toggleSound('+data.alt_speed+',\''+data.ghost+'2\')">&#128266;</span>)'}
                         </div>
                     </div>
                 </div>
@@ -99,9 +99,9 @@ class Ghost {
 
     toNumStr(num) { 
         if (Number.isInteger(num)) { 
-          return num + ".0"
+          return num + ",0"
         } else {
-          return num.toString(); 
+          return num.toString().replace(".",","); 
         }
       }
 }
