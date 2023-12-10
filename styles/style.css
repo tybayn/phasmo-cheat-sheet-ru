@@ -1,6 +1,6 @@
 @font-face {
-    font-family: 'Correction';
-    src: url('fonts/correction.ttf');
+    font-family: 'Zaychik';
+    src: url('fonts/zaychik.ttf');
 }
 
 @font-face {
@@ -45,7 +45,7 @@ hr{
 }
 
 .phasfont{
-    font-family:"Correction";
+    font-family:"Zaychik";
     letter-spacing: 1;
 }
 
@@ -842,7 +842,7 @@ hr{
         font-size: 16px;
         padding: 0px 3px;
         padding-top: 1px;
-        font-family: 'Correction';
+        font-family: 'Zaychik';
         float: right;
         cursor: pointer;
     }
@@ -1556,9 +1556,8 @@ hr{
     .ghost_name{
         grid-column: 1;
         grid-row: 1;
-        font-family:"Correction";
-        font-size: 24px;
-        font-weight: bold;
+        font-family:"Zaychik";
+        font-size: 26px;
         padding:10px 10px 0px 10px;
         text-align: center;
         letter-spacing: 2px;

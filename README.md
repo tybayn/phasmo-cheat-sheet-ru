@@ -28,4 +28,4 @@ NOTE: By using this code, you agree to not use any included, external URLs prese
 With the exception of:  
 JQuery - MIT License  
 Troubleside Font - SIL Open Font License (OFL)
-Correction Font - SIL Open Font License (OFL)
+Zaychik Font - CC, Zaychik is developed by Maria Khmelevskaya at HSE ART AND DESIGN SCHOOL

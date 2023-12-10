@@ -665,7 +665,7 @@
         font-size: 35px;
         padding: 2px 10px;
         margin: 10px;
-        font-family: 'Correction';
+        font-family: 'Zaychik';
     }
 
     #game_mode{
@@ -1336,9 +1336,8 @@
     .ghost_name{
         grid-column: 1;
         grid-row: 1;
-        font-family: "Correction";
+        font-family: "Zaychik";
         font-size: 30px;
-        font-weight: bold;
         padding: 10px 0px 10px 20px;
         text-align: left;
         letter-spacing: 4px;
