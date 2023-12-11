@@ -110,7 +110,7 @@ function parse_speech(vtext){
         domovoi_msg += "marked ghost speed as "
 
         vtext = vtext.replace('three','3')
-        vtext = vtext.replace('two','2').replace('to','2')
+        vtext = vtext.replace('two','2')
         vtext = vtext.replace('one','1')
         vtext = vtext.replace('zero','0')
 
@@ -536,7 +536,7 @@ function parse_speech(vtext){
         domovoi_msg += "set # of evidence to "
 
         vtext = vtext.replace('three','3')
-        vtext = vtext.replace('two','2').replace('to','2')
+        vtext = vtext.replace('two','2')
         vtext = vtext.replace('one','1')
         vtext = vtext.replace('zero','0')
 
@@ -717,7 +717,7 @@ if (("webkitSpeechRecognition" in window || "speechRecognition" in window) && !n
   
     speechRecognition.continuous = false;
     speechRecognition.interimResults = false;
-    speechRecognition.lang = 'ru';
+    speechRecognition.lang = 'en-US';
   
     speechRecognition.onend = () => {
         if(!stop_listen){
