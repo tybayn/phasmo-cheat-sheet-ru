@@ -3,11 +3,11 @@ function setCookie(e,t,i){let n=new Date;n.setTime(n.getTime()+864e5*i);let o="e
 
 const all_evidence = ["Проектор","ЭМП 5","Ультрафиолет","Минусовая","Приз.Огонёк","Записи","Радиоприёмник"]
 const all_ghosts = ["Дух","Мираж","Фантом","Полтергейст","Банши","Джинн","Мара","Ревенант","Тень","Демон","Юрэй","Они","Ёкай","Ханту","Горё","Мюлинг","Онрё","Близнецы","Райдзю","Обакэ","Мимик","Морой","Деоген","Тайэ"]
-const all_speed = ["Slow","Normal","Fast"]
-const all_sanity = ["Late","Average","Early","VeryEarly"]
+const all_speed = ["Медленный","Нормальный","Быстрый"]
+const all_sanity = ["Поздно","Average","Рано","ОченьРано"]
 let bpm_list = []
 
-var state = {"evidence":{},"speed":{"Slow":0,"Normal":0,"Fast":0},"los":-1,"sanity":{"Late":0,"Average":0,"Early":0,"VeryEarly":0},"ghosts":{}}
+var state = {"evidence":{},"speed":{"Медленный":0,"Нормальный":0,"Быстрый":0},"los":-1,"sanity":{"Поздно":0,"Average":0,"Рано":0,"ОченьРано":0},"ghosts":{}}
 var user_settings = {"num_evidences":3,"ghost_modifier":2,"volume":50,"mute_timer_toggle":0,"mute_timer_countdown":0,"offset":0,"sound_type":0,"speed_logic_type":0,"bpm":0,"domo_side":0}
 
 let znid = getCookie("znid")
@@ -297,11 +297,11 @@ function revive(){
 
 function filter(ignore_link=false){
     state["evidence"] = {}
-    state["speed"] = {"Slow":0,"Normal":0,"Fast":0}
+    state["speed"] = {"Медленный":0,"Нормальный":0,"Быстрый":0}
     for (var i = 0; i < all_evidence.length; i++){
         state["evidence"][all_evidence[i]] = 0
     }
-    state["sanity"] = {"Late":0,"Average":0,"Early":0,"VeryEarly":0}
+    state["sanity"] = {"Поздно":0,"Average":0,"Рано":0,"ОченьРано":0}
     state["los"] = -1
 
     // Get values of checkboxes
@@ -311,7 +311,7 @@ function filter(ignore_link=false){
     var not_evi_array = [];
     var spe_array = [];
     var san_array = [];
-    var san_lookup = {"Late":0,"Average":40,"Early":50,"VeryEarly":75}
+    var san_lookup = {"Поздно":0,"Average":40,"Рано":50,"ОченьРано":75}
     var monkey_evi = ""
     if (document.querySelectorAll('[name="evidence"] .monkey-disabled').length > 0)
         monkey_evi = document.querySelectorAll('[name="evidence"] .monkey-disabled')[0].parentElement.value;
@@ -550,13 +550,13 @@ function filter(ignore_link=false){
 
             spe_array.forEach(function (item,index){
 
-                if (item == "Slow"){
+                if (item == "Медленный"){
                     skeep = true
                 }
-                else if (item == "Normal"){
+                else if (item == "Нормальный"){
                     nkeep = true
                 }
-                else if (item == "Fast"){
+                else if (item == "Быстрый"){
                     fkeep = true
                 }
             });
@@ -579,40 +579,40 @@ function filter(ignore_link=false){
         // Check if speed is being kept
         if (keep && loskeep){
             if(min_speed < base_speed || name == "Мимик"){
-                keep_speed.add('Slow')
+                keep_speed.add('Медленный')
                 if (marked_not)
-                    fade_speed.add('Slow')
+                    fade_speed.add('Медленный')
                 else
-                    not_fade_speed.add('Slow')
+                    not_fade_speed.add('Медленный')
             }
             if ((speed_type == "range" && min_speed <= base_speed && base_speed <= max_speed) || name == "Мимик"){
-                keep_speed.add('Normal')
+                keep_speed.add('Нормальный')
                 if (marked_not)
-                    fade_speed.add('Normal')
+                    fade_speed.add('Нормальный')
                 else
-                    not_fade_speed.add('Normal')
+                    not_fade_speed.add('Нормальный')
             }
             else if(min_speed === base_speed || max_speed === base_speed){
-                keep_speed.add('Normal')
+                keep_speed.add('Нормальный')
                 if (marked_not)
-                    fade_speed.add('Normal')
+                    fade_speed.add('Нормальный')
                 else
-                    not_fade_speed.add('Normal')
+                    not_fade_speed.add('Нормальный')
             }
             if(max_speed > base_speed || name == "Мимик"){
-                keep_speed.add('Fast')
+                keep_speed.add('Быстрый')
                 if (marked_not)
-                    fade_speed.add('Fast')
+                    fade_speed.add('Быстрый')
                 else
-                    not_fade_speed.add('Fast')
+                    not_fade_speed.add('Быстрый')
             }
 
-            if(sanity[0] > san_lookup['Late'] || sanity[1] > san_lookup['Late']){
-                keep_sanity.add('Late')
+            if(sanity[0] > san_lookup['Поздно'] || sanity[1] > san_lookup['Поздно']){
+                keep_sanity.add('Поздно')
                 if (marked_not)
-                    fade_sanity.add('Late')
+                    fade_sanity.add('Поздно')
                 else
-                    not_fade_sanity.add('Late')
+                    not_fade_sanity.add('Поздно')
             }
             if(sanity[0] > san_lookup['Average'] || sanity[1] > san_lookup['Average']){
                 keep_sanity.add('Average')
@@ -621,19 +621,19 @@ function filter(ignore_link=false){
                 else
                     not_fade_sanity.add('Average')
             }
-            if(sanity[0] > san_lookup['Early'] || sanity[1] > san_lookup['Early']){
-                keep_sanity.add('Early')
+            if(sanity[0] > san_lookup['Рано'] || sanity[1] > san_lookup['Рано']){
+                keep_sanity.add('Рано')
                 if (marked_not)
-                    fade_sanity.add('Early')
+                    fade_sanity.add('Рано')
                 else
-                    not_fade_sanity.add('Early')
+                    not_fade_sanity.add('Рано')
             }
-            if(sanity[0] > san_lookup['VeryEarly'] || sanity[1] > san_lookup['VeryEarly']){
-                keep_sanity.add('VeryEarly')
+            if(sanity[0] > san_lookup['ОченьРано'] || sanity[1] > san_lookup['ОченьРано']){
+                keep_sanity.add('ОченьРано')
                 if (marked_not)
-                    fade_sanity.add('VeryEarly')
+                    fade_sanity.add('ОченьРано')
                 else
-                    not_fade_sanity.add('VeryEarly')
+                    not_fade_sanity.add('ОченьРано')
             }
         }
 
@@ -975,7 +975,7 @@ function checkResetButton(){
 function resetResetButton(){
     $("#reset").removeClass("reset_pulse")
     $("#reset").addClass("standard_reset")
-    $("#reset").html(polled ? "Waiting for others..." : "Reset")
+    $("#reset").html(polled ? "Жду других..." : "Сброс")
     $("#reset").attr("ondblclick",null)
     $("#reset").attr("onclick","reset()")
 }

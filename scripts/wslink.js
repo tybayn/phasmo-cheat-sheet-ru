@@ -4,7 +4,7 @@ let dlws = null
 var ws_ping;
 var dlws_ping;
 var await_dlws_pong = false
-const lang = "en"
+const lang = "ru"
 
 function auto_link(){
     var room_id = getCookie("room_id")
@@ -89,14 +89,14 @@ function link_room(){
         $("#room_id_create").hide()
         $("#room_id_link").hide()
         $("#room_id_disconnect").show()
-        document.getElementById("room_id_note").innerText = "STATUS: Connected"
+        document.getElementById("room_id_note").innerText = "СТАТУС: Подключено"
         document.getElementById("settings_status").className = "connected"
         ws_ping = setInterval(function(){
             send_ping()
         }, 30000)
     }
     ws.onerror = function(event){
-        document.getElementById("room_id_note").innerText = "ERROR: Could not connect!"
+        document.getElementById("room_id_note").innerText = "ОШИБКА: Не удалось подключиться!"
         document.getElementById("settings_status").className = "error"
         setCookie("room_id","",-1)
     }
@@ -130,26 +130,26 @@ function link_room(){
                     }
                 }
                 if (incoming_state['action'].toUpperCase() == "CHANGE"){
-                    document.getElementById("room_id_note").innerText = `STATUS: Connected (${incoming_state['players']})`
+                    document.getElementById("room_id_note").innerText = `СТАТУС: Подключено (${incoming_state['players']})`
                 }
                 if (incoming_state['action'].toUpperCase() == "POLL"){
                     polled = true
                     if(Object.keys(discord_user).length > 0){
                         if (hasSelected()){
                             ws.send('{"action":"READY"}')
-                            $("#reset").html("Waiting for others...")
+                            $("#reset").html("Жду других...")
                         }
                         else{
                             $("#reset").removeClass("standard_reset")
                             $("#reset").addClass("reset_pulse")
-                            $("#reset").html("No ghost selected!<div class='reset_note'>(double click to save & reset)</div>")
+                            $("#reset").html("Призрак не выбран!<div class='reset_note'>(дважды щелкните, чтобы сохранить и сбросить)</div>")
                             $("#reset").attr("onclick",null)
                             $("#reset").attr("ondblclick","reset()")
                         }
                     }
                     else{
                         ws.send('{"action":"READY"}')
-                        $("#reset").html("Waiting for others...")
+                        $("#reset").html("Жду других...")
                     }
                 }
                 return
@@ -269,11 +269,11 @@ function link_link(){
         hasDLLink = true;
         $("#link_id_create").hide()
         $("#link_id_disconnect").show()
-        document.getElementById("link_id_note").innerText = "STATUS: Awaiting Desktop Link"
+        document.getElementById("link_id_note").innerText = "СТАТУС: Ожидается ссылка на Desktop Link"
         document.getElementById("dllink_status").className = "pending"
     }
     dlws.onerror = function(event){
-        document.getElementById("link_id_note").innerText = "ERROR: Could not connect!"
+        document.getElementById("link_id_note").innerText = "ОШИБКА: Не удалось подключиться!"
         document.getElementById("dllink_status").className = "error"
         setCookie("link_id","",-1)
     }
@@ -294,7 +294,7 @@ function link_link(){
                     send_cooldown_timer()
                 }
                 if (incoming_state['action'].toUpperCase() == "LINKED"){
-                    document.getElementById("link_id_note").innerText = `STATUS: Linked`
+                    document.getElementById("link_id_note").innerText = `СТАТУС: Подключено`
                     document.getElementById("dllink_status").className = "connected"
                     dlws.send('{"action":"LINK"}')
                     send_bpm_link("-","-",["50%","75%","100%","125%","150%"][parseInt($("#ghost_modifier_speed").val())])
@@ -307,7 +307,7 @@ function link_link(){
                             dlws.send('{"action":"PINGKILL"}')
                             $("#link_id_create").show()
                             $("#link_id_disconnect").hide()
-                            document.getElementById("link_id_note").innerText = "ERROR: Link Lost Connection!"
+                            document.getElementById("link_id_note").innerText = "ОШИБКА: Соединение потеряно!"
                             document.getElementById("dllink_status").className = "error"
                             setCookie("link_id","",-1)
                             hasDLLink=false
@@ -343,7 +343,7 @@ function link_link(){
                             send_ghost_link("None Selected!",-1)
                             $("#reset").removeClass("standard_reset")
                             $("#reset").addClass("reset_pulse")
-                            $("#reset").html("No ghost selected!<div class='reset_note'>(say 'force reset' to save & reset)</div>")
+                            $("#reset").html("Призрак не выбран!<div class='reset_note'>(say 'force reset' to save & reset)</div>")
                             $("#reset").prop("onclick",null)
                             $("#reset").prop("ondblclick","reset()")
                             reset_voice_status()
@@ -384,7 +384,7 @@ function continue_session(){
     if(hasLink){
         ws.send('{"action":"READY"}')
         polled = true
-        $("#reset").html("Waiting for others...")
+        $("#reset").html("Жду других...")
         return false
     }
     return true
@@ -398,7 +398,7 @@ function disconnect_room(reset=false,has_status=false){
         $("#room_id_link").show()
         $("#room_id_disconnect").hide()
         if(!has_status){
-            document.getElementById("room_id_note").innerText = "STATUS: Not connected"
+            document.getElementById("room_id_note").innerText = "СТАТУС: Не подключено"
             document.getElementById("settings_status").className = null
             document.getElementById("room_id").value = ""
         }
@@ -477,7 +477,7 @@ function disconnect_link(reset=false,has_status=false){
         $("#link_id_create").show()
         $("#link_id_disconnect").hide()
         if(!has_status){
-            document.getElementById("link_id_note").innerText = "STATUS: Not linked"
+            document.getElementById("link_id_note").innerText = "СТАТУС: Не подключено"
             document.getElementById("dllink_status").className = null
             document.getElementById("link_id").value = ""
         }

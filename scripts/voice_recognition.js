@@ -430,7 +430,7 @@ function parse_speech(vtext){
         vtext = vtext.replace('hunt sanity', "").replace('sanity', "").trim()
         domovoi_msg += "marked hunt sanity "
 
-        var smallest_sanity = "Late"
+        var smallest_sanity = "Поздно"
         var smallest_val = 100
         var vvalue = 1
         if(vtext.startsWith("not ") || vtext.startsWith("knot ") || vtext.startsWith("knight ")|| vtext.startsWith("night ")){
@@ -645,7 +645,7 @@ function parse_speech(vtext){
             if(!hasSelected()){
                 $("#reset").removeClass("standard_reset")
                 $("#reset").addClass("reset_pulse")
-                $("#reset").html("No ghost selected!<div class='reset_note'>(say 'force reset' to save & reset)</div>")
+                $("#reset").html("Призрак не выбран!<div class='reset_note'>(say 'force reset' to save & reset)</div>")
                 $("#reset").prop("onclick",null)
                 $("#reset").prop("ondblclick","reset()")
                 reset_voice_status()
@@ -717,7 +717,7 @@ if (("webkitSpeechRecognition" in window || "speechRecognition" in window) && !n
   
     speechRecognition.continuous = false;
     speechRecognition.interimResults = false;
-    speechRecognition.lang = 'en-US';
+    speechRecognition.lang = 'ru';
   
     speechRecognition.onend = () => {
         if(!stop_listen){
