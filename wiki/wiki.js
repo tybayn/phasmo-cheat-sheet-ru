@@ -15,7 +15,7 @@ function accordian(elem){
 
 // -----------------------------------------------
 let ghost_flicker_data = {
-    "Normal":{
+    "Нормальный":{
         "vis_max":0.3,
         "vis_min":0.08,
         "invis_max":1.0,

@@ -7,9 +7,9 @@
 
     .wiki-img-block{
         display: inline; 
-        padding:20px; 
-        width: 60px;
-        height: 100px;
+        padding: 6px;
+        width: 90px;
+        height: 125px;
         text-align: center;
     }
 
@@ -174,7 +174,7 @@
         background-size: cover;
         position: absolute;
         bottom: 10px;
-        left: 60px;
+        left: 65px;
     }
 
     .tarot-img {
@@ -192,9 +192,9 @@
 
     .wiki-img-block{
         display: inline; 
-        padding:20px; 
-        width: 140px;
-        height: 230px;
+        padding: 5px;
+        width: 170px;
+        height: 240px;
         text-align: center;
     }
 
@@ -371,7 +371,7 @@
         background-size: cover;
         position: absolute;
         bottom: 10px;
-        left: 110px;
+        left: 115px;
     }
 
     .tarot-img {
