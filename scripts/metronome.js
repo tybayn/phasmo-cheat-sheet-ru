@@ -220,7 +220,7 @@ function mark_ghost_details(ms)
         var speed_tab = document.getElementById(`${additional_ghost_data[g]}_speed_breakdown`)
         for (var i = 1, row; row = speed_tab.rows[i]; i++){
             $(row).removeClass("row_select")
-            var speed = parseFloat(row.getElementsByClassName(`${additional_ghost_data[g]}_speed_item`)[0].textContent.replace(" м/с",""))
+            var speed = parseFloat(row.getElementsByClassName(`${additional_ghost_data[g]}_speed_item`)[0].textContent.replace(",",".").replace(" м/с",""))
             if(((speed - additional_ghost_var[g]) <= ms && ms <= (speed + additional_ghost_var[g]))){
                 $(row).addClass("row_select")
                 $("#guide_tab_footstep").show()
@@ -256,9 +256,9 @@ function mark_ghosts(ms){
             }
 
             // Get min and max
-            var min_speed = parseFloat(speeds[0].replaceAll(" м/с",""))
+            var min_speed = parseFloat(speeds[0].replace(",",".").replaceAll(" м/с",""))
             if (speeds.length > 1){
-                var max_speed = parseFloat(speeds[1].replaceAll(" м/с",""))
+                var max_speed = parseFloat(speeds[1].replace(",",".").replaceAll(" м/с",""))
             }
             else{
                 var max_speed = min_speed
