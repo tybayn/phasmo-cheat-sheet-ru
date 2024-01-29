@@ -1,7 +1,8 @@
 {
     "ghosts": [
         {
-            "ghost": "Дух",
+            "ghost": "Spirit",
+            "name": "Дух",
             "min_speed": 1.7,
             "max_speed": null,
             "alt_speed": null,
@@ -11,9 +12,9 @@
             "hunt_sanity_low": "50%",
             "hunt_sanity_high": "50%",
             "evidence": [
-                "ЭМП 5",
-                "Радиоприёмник",
-                "Записи"
+                "EMF 5",
+                "Spirit Box",
+                "Writing"
             ],
             "nightmare_evidence": null,
             "behavior": [
@@ -22,7 +23,8 @@
             ]
         },
         {
-            "ghost": "Мираж",
+            "ghost": "Wraith",
+            "name": "Мираж",
             "min_speed": 1.7,
             "max_speed": null,
             "alt_speed": null,
@@ -32,9 +34,9 @@
             "hunt_sanity_low": "50%",
             "hunt_sanity_high": "50%",
             "evidence": [
-                "ЭМП 5",
-                "Радиоприёмник",
-                "Проектор"
+                "EMF 5",
+                "Spirit Box",
+                "DOTs"
             ],
             "nightmare_evidence": null,
             "behavior": [
@@ -46,7 +48,8 @@
             ]
         },
         {
-            "ghost": "Фантом",
+            "ghost": "Phantom",
+            "name": "Фантом",
             "min_speed": 1.7,
             "max_speed": null,
             "alt_speed": null,
@@ -56,9 +59,9 @@
             "hunt_sanity_low": "50%",
             "hunt_sanity_high": "50%",
             "evidence": [
-                "Радиоприёмник",
-                "Ультрафиолет",
-                "Проектор"
+                "Spirit Box",
+                "Ultraviolet",
+                "DOTs"
             ],
             "nightmare_evidence": null,
             "behavior": [
@@ -71,7 +74,8 @@
             ]
         },
         {
-            "ghost": "Полтергейст",
+            "ghost": "Poltergeist",
+            "name": "Полтергейст",
             "min_speed": 1.7,
             "max_speed": null,
             "alt_speed": null,
@@ -81,9 +85,9 @@
             "hunt_sanity_low": "50%",
             "hunt_sanity_high": "50%",
             "evidence": [
-                "Радиоприёмник",
-                "Ультрафиолет",
-                "Записи"
+                "Spirit Box",
+                "Ultraviolet",
+                "Writing"
             ],
             "nightmare_evidence": null,
             "behavior": [
@@ -96,7 +100,8 @@
             ]
         },
         {
-            "ghost": "Банши",
+            "ghost": "Banshee",
+            "name": "Банши",
             "min_speed": 1.7,
             "max_speed": null,
             "alt_speed": null,
@@ -106,9 +111,9 @@
             "hunt_sanity_low": "12%",
             "hunt_sanity_high": "87%",
             "evidence": [
-                "Ультрафиолет",
-                "Приз.Огонёк",
-                "Проектор"
+                "Ultraviolet",
+                "Ghost Orbs",
+                "DOTs"
             ],
             "nightmare_evidence": null,
             "behavior": [
@@ -124,7 +129,8 @@
             ]
         },
         {
-            "ghost": "Джинн",
+            "ghost": "Jinn",
+            "name": "Джинн",
             "min_speed": 1.7,
             "max_speed": 2.5,
             "alt_speed": null,
@@ -134,9 +140,9 @@
             "hunt_sanity_low": "50%",
             "hunt_sanity_high": "50%",
             "evidence": [
-                "ЭМП 5",
-                "Ультрафиолет",
-                "Минусовая"
+                "EMF 5",
+                "Ultraviolet",
+                "Freezing"
             ],
             "nightmare_evidence": null,
             "behavior": [
@@ -149,7 +155,8 @@
             ]
         },
         {
-            "ghost": "Мара",
+            "ghost": "Mare",
+            "name": "Мара",
             "min_speed": 1.7,
             "max_speed": null,
             "alt_speed": null,
@@ -159,9 +166,9 @@
             "hunt_sanity_low": "40%",
             "hunt_sanity_high": "60%",
             "evidence": [
-                "Радиоприёмник",
-                "Приз.Огонёк",
-                "Записи"
+                "Spirit Box",
+                "Ghost Orbs",
+                "Writing"
             ],
             "nightmare_evidence": null,
             "behavior": [
@@ -176,7 +183,8 @@
             ]
         },
         {
-            "ghost": "Ревенант",
+            "ghost": "Revenant",
+            "name": "Ревенант",
             "min_speed": 1.0,
             "max_speed": 3.0,
             "alt_speed": null,
@@ -186,9 +194,9 @@
             "hunt_sanity_low": "50%",
             "hunt_sanity_high": "50%",
             "evidence": [
-                "Приз.Огонёк",
-                "Записи",
-                "Минусовая"
+                "Ghost Orbs",
+                "Writing",
+                "Freezing"
             ],
             "nightmare_evidence": null,
             "behavior": [
@@ -197,7 +205,8 @@
             ]
         },
         {
-            "ghost": "Тень",
+            "ghost": "Shade",
+            "name": "Тень",
             "min_speed": 1.7,
             "max_speed": null,
             "alt_speed": null,
@@ -207,9 +216,9 @@
             "hunt_sanity_low": "35%",
             "hunt_sanity_high": "35%",
             "evidence": [
-                "ЭМП 5",
-                "Записи",
-                "Минусовая"
+                "EMF 5",
+                "Writing",
+                "Freezing"
             ],
             "nightmare_evidence": null,
             "behavior": [
@@ -223,7 +232,8 @@
             ]
         },
         {
-            "ghost": "Демон",
+            "ghost": "Demon",
+            "name": "Демон",
             "min_speed": 1.7,
             "max_speed": null,
             "alt_speed": null,
@@ -233,9 +243,9 @@
             "hunt_sanity_low": "70%",
             "hunt_sanity_high": "100%",
             "evidence": [
-                "Ультрафиолет",
-                "Записи",
-                "Минусовая"
+                "Ultraviolet",
+                "Writing",
+                "Freezing"
             ],
             "nightmare_evidence": null,
             "behavior": [
@@ -249,7 +259,8 @@
             ]
         },
         {
-            "ghost": "Юрэй",
+            "ghost": "Yurei",
+            "name": "Юрэй",
             "min_speed": 1.7,
             "max_speed": null,
             "alt_speed": null,
@@ -259,9 +270,9 @@
             "hunt_sanity_low": "50%",
             "hunt_sanity_high": "50%",
             "evidence": [
-                "Приз.Огонёк",
-                "Минусовая",
-                "Проектор"
+                "Ghost Orbs",
+                "Freezing",
+                "DOTs"
             ],
             "nightmare_evidence": null,
             "behavior": [
@@ -273,7 +284,8 @@
             ]
         },
         {
-            "ghost": "Они",
+            "ghost": "Oni",
+            "name": "Они",
             "min_speed": 1.7,
             "max_speed": null,
             "alt_speed": null,
@@ -283,9 +295,9 @@
             "hunt_sanity_low": "50%",
             "hunt_sanity_high": "50%",
             "evidence": [
-                "ЭМП 5",
-                "Минусовая",
-                "Проектор"
+                "EMF 5",
+                "Freezing",
+                "DOTs"
             ],
             "nightmare_evidence": null,
             "behavior": [
@@ -299,7 +311,8 @@
             ]
         },
         {
-            "ghost": "Ёкай",
+            "ghost": "Yokai",
+            "name": "Ёкай",
             "min_speed": 1.7,
             "max_speed": null,
             "alt_speed": null,
@@ -309,9 +322,9 @@
             "hunt_sanity_low": "50%",
             "hunt_sanity_high": "80%",
             "evidence": [
-                "Радиоприёмник",
-                "Приз.Огонёк",
-                "Проектор"
+                "Spirit Box",
+                "Ghost Orbs",
+                "DOTs"
             ],
             "nightmare_evidence": null,
             "behavior": [
@@ -325,7 +338,8 @@
             ]
         },
         {
-            "ghost": "Ханту",
+            "ghost": "Hantu",
+            "name": "Ханту",
             "min_speed": 1.44,
             "max_speed": 2.7,
             "alt_speed": null,
@@ -335,11 +349,11 @@
             "hunt_sanity_low": "50%",
             "hunt_sanity_high": "50%",
             "evidence": [
-                "Ультрафиолет",
-                "Приз.Огонёк",
-                "Минусовая"
+                "Ultraviolet",
+                "Ghost Orbs",
+                "Freezing"
             ],
-            "nightmare_evidence": "Минусовая",
+            "nightmare_evidence": "Freezing",
             "behavior": [
                 "<Особенности>",
                 "Во время охоты у призрака может наблюдаться леденящее дыхание в любой комнате с выключенным/сломанным щитком.",
@@ -353,7 +367,8 @@
             ]
         },
         {
-            "ghost": "Горё",
+            "ghost": "Goryo",
+            "name": "Горё",
             "min_speed": 1.7,
             "max_speed": null,
             "alt_speed": null,
@@ -363,11 +378,11 @@
             "hunt_sanity_low": "50%",
             "hunt_sanity_high": "50%",
             "evidence": [
-                "ЭМП 5",
-                "Ультрафиолет",
-                "Проектор"
+                "EMF 5",
+                "Ultraviolet",
+                "DOTs"
             ],
-            "nightmare_evidence": "Проектор",
+            "nightmare_evidence": "DOTs",
             "behavior": [
                 "<Особенности>",
                 "Лазерный проектор видно только на видеокамере и не будут отображаться, если игрок находится в той же комнате (Лазерный проектора может быть за пределами комнаты и войти в комнату игрока)",
@@ -379,7 +394,8 @@
             ]
         },
         {
-            "ghost": "Мюлинг",
+            "ghost": "Myling",
+            "name": "Мюлинг",
             "min_speed": 1.7,
             "max_speed": null,
             "alt_speed": null,
@@ -389,9 +405,9 @@
             "hunt_sanity_low": "50%",
             "hunt_sanity_high": "50%",
             "evidence": [
-                "ЭМП 5",
-                "Ультрафиолет",
-                "Записи"
+                "EMF 5",
+                "Ultraviolet",
+                "Writing"
             ],
             "nightmare_evidence": null,
             "behavior": [
@@ -402,7 +418,8 @@
             ]
         },
         {
-            "ghost": "Онрё",
+            "ghost": "Onryo",
+            "name": "Онрё",
             "min_speed": 1.7,
             "max_speed": null,
             "alt_speed": null,
@@ -412,9 +429,9 @@
             "hunt_sanity_low": "60%",
             "hunt_sanity_high": "100%",
             "evidence": [
-                "Радиоприёмник",
-                "Приз.Огонёк",
-                "Минусовая"
+                "Spirit Box",
+                "Ghost Orbs",
+                "Freezing"
             ],
             "nightmare_evidence": null,
             "behavior": [
@@ -428,7 +445,8 @@
             ]
         },
         {
-            "ghost": "Близнецы",
+            "ghost": "The Twins",
+            "name": "Близнецы",
             "min_speed": 1.53,
             "max_speed": 1.87,
             "alt_speed": null,
@@ -438,9 +456,9 @@
             "hunt_sanity_low": "50%",
             "hunt_sanity_high": "50%",
             "evidence": [
-                "ЭМП 5",
-                "Радиоприёмник",
-                "Минусовая"
+                "EMF 5",
+                "Spirit Box",
+                "Freezing"
             ],
             "nightmare_evidence": null,
             "behavior": [
@@ -453,7 +471,8 @@
             ]
         },
         {
-            "ghost": "Райдзю",
+            "ghost": "Raiju",
+            "name": "Райдзю",
             "min_speed": 1.7,
             "max_speed": 2.5,
             "alt_speed": null,
@@ -463,9 +482,9 @@
             "hunt_sanity_low": "50%",
             "hunt_sanity_high": "65%",
             "evidence": [
-                "ЭМП 5",
-                "Приз.Огонёк",
-                "Проектор"
+                "EMF 5",
+                "Ghost Orbs",
+                "DOTs"
             ],
             "nightmare_evidence": null,
             "behavior": [
@@ -478,7 +497,8 @@
             ]
         },
         {
-            "ghost": "Обакэ",
+            "ghost": "Obake",
+            "name": "Обакэ",
             "min_speed": 1.7,
             "max_speed": null,
             "alt_speed": null,
@@ -488,9 +508,9 @@
             "hunt_sanity_low": "50%",
             "hunt_sanity_high": "50%",
             "evidence": [
-                "ЭМП 5",
-                "Ультрафиолет",
-                "Приз.Огонёк"
+                "EMF 5",
+                "Ultraviolet",
+                "Ghost Orbs"
             ],
             "nightmare_evidence": "Ульрафиолет",
             "behavior": [
@@ -504,7 +524,8 @@
             ]
         },
         {
-            "ghost": "Мимик",
+            "ghost": "The Mimic",
+            "name": "Мимик",
             "min_speed": 1.7,
             "max_speed": null,
             "alt_speed": null,
@@ -514,9 +535,9 @@
             "hunt_sanity_low": "35%",
             "hunt_sanity_high": "100%",
             "evidence": [
-                "Радиоприёмник",
-                "Ультрафиолет",
-                "Минусовая"
+                "Spirit Box",
+                "Ultraviolet",
+                "Freezing"
             ],
             "nightmare_evidence": null,
             "behavior": [
@@ -531,7 +552,8 @@
             ]
         },
         {
-            "ghost": "Морой",
+            "ghost": "Moroi",
+            "name": "Морой",
             "min_speed": 1.5,
             "max_speed": 2.25,
             "alt_speed": 3.71,
@@ -541,11 +563,11 @@
             "hunt_sanity_low": "50%",
             "hunt_sanity_high": "50%",
             "evidence": [
-                "Радиоприёмник",
-                "Записи",
-                "Минусовая"
+                "Spirit Box",
+                "Writing",
+                "Freezing"
             ],
-            "nightmare_evidence": "Радиоприёмник",
+            "nightmare_evidence": "Spirit Box",
             "behavior": [
                 "<Особенности>",
                 "Накладывает проклятие на игрока, когда игрок говорит через направленый микрофон или радиоприёмник, проклятие снижает рассудок в 2 раза быстрее.",
@@ -558,7 +580,8 @@
             ]
         },
         {
-            "ghost": "Деоген",
+            "ghost": "Deogen",
+            "name": "Деоген",
             "min_speed": 0.4,
             "max_speed": 3.0,
             "alt_speed": null,
@@ -568,11 +591,11 @@
             "hunt_sanity_low": "40%",
             "hunt_sanity_high": "40%",
             "evidence": [
-                "Радиоприёмник",
-                "Записи",
-                "Проектор"
+                "Spirit Box",
+                "Writing",
+                "DOTs"
             ],
-            "nightmare_evidence": "Радиоприёмник",
+            "nightmare_evidence": "Spirit Box",
             "behavior": [
                 "<Особенности>",
                 "Тяжелое дыхание через радиоприёмник в радиусе 1 метра от призрака.  <span class=\"sound\" onClick=\"playSound('https://zero-network.net/phasmophobia/static/assets/deogen_breathing.mp3')\">🔊</span>",
@@ -584,7 +607,8 @@
             ]
         },
         {
-            "ghost": "Тайэ",
+            "ghost": "Thaye",
+            "name": "Тайэ",
             "min_speed": 1.0,
             "max_speed": 2.75,
             "alt_speed": null,
@@ -594,9 +618,9 @@
             "hunt_sanity_low": "35%",
             "hunt_sanity_high": "75%",
             "evidence": [
-                "Приз.Огонёк",
-                "Записи",
-                "Проектор"
+                "Ghost Orbs",
+                "Writing",
+                "DOTs"
             ],
             "nightmare_evidence": null,
             "behavior": [
@@ -612,13 +636,13 @@
         }
     ],
     "version": "v0.9.4.0",
-    "evidence": [
-        "ЭМП 5",
-        "Ультрафиолет",
-        "Записи",
-        "Минусовая",
-        "Проектор",
-        "Приз.Огонёк",
-        "Радиоприёмник"
-    ]
+    "evidence": {
+        "EMF 5":"ЭМП 5",
+        "Ultraviolet":"Ультрафиолет",
+        "Writing":"Записи",
+        "Freezing":"Минусовая",
+        "DOTs":"Проектор",
+        "Ghost Orbs":"Приз.Огонёк",
+        "Spirit Box":"Радиоприёмник"
+    }
 }
