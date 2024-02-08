@@ -13,13 +13,13 @@
         };
     </script>
     <script src="jquery/jquery-3.6.2.min.js"></script>
-    <script src="scripts/ghost_template.js"></script>
-    <link rel="stylesheet" href="styles/style.css"/>
-    <link rel="stylesheet" href="styles/style-mobile.css"/>
+    <script src="scripts-v2/ghost_template.js"></script>
+    <link rel="stylesheet" href="styles-v2/style.css"/>
+    <link rel="stylesheet" href="styles-v2/style-mobile.css"/>
     <link rel="stylesheet" href="themes/themes.css"/>
-    <link rel="stylesheet" href="wiki/wiki.css" >
+    <link rel="stylesheet" href="wiki-v2/wiki.css" >
     <link rel="stylesheet" href="events/events.css" >
-    <link rel="stylesheet" href="styles/sparkles.css" >
+    <link rel="stylesheet" href="styles-v2/sparkles.css" >
 </head>
 
 <body>
@@ -70,7 +70,9 @@
             <div class="info_block" style="margin-top: 10px; overflow-y: scroll; overflow-x: hidden;">
                 <strong>Улики:</strong>
                 <ul>
-                    <li>"number of evidence &lt;num&gt;" or "difficulty &lt;num&gt;" -> Set the number of evidence</li>
+                    <li>"difficulty &lt;difficulty&gt;" -> Set the difficulty</li>
+                    <li>"number of evidence &lt;num&gt;" -> Custom: Set number of evidence</li>
+                    <li>"hunt duration &lt;duration&gt;" -> Custom: Set hunt duration</li>
                     <li>"evidence &lt;evidence&gt;" -> Mark as a found evidence</li>
                     <li>"evidence not &lt;evidence&gt;" -> Mark as not an evidence</li>
                     <li>"evidence clear &lt;evidence&gt;" -> Reset state of an evidence</li>
@@ -108,12 +110,15 @@
                     <li>"timer stop " -> Stop the smudge timer</li>
                     <li>"cooldown start" -> Start the cooldown timer</li>
                     <li>"cooldown stop " -> Stop the cooldown timer</li>
+                    <li>"hunt start" -> Start the hunt timer</li>
+                    <li>"hunt stop " -> Stop the hunt timer</li>
                 </ul>
                 <hr>
                 <strong>Misc:</strong>
                 <ul>
                     <li>"show filters" or "show tools" -> Flips the menu to show the filters/tools</li>
                     <li>"ghost speed &lt;percent&gt;" -> Set ghost speed modifier to 50%, 75%, 100%, 125%, or 150%</li>
+                    <li>"select map &lt;map name&gt;" -> Selects the specified map</li>
                     <li>"show map [&lt;map name&gt;]" -> Opens the map tab and displays map</li>
                     <li>"close map" or "hide map" -> Closes the map tab</li>
                     <li>"reset journal" or "reset cheat sheet" -> Reset the cheat sheet (will save if linked with Discord)</li>
@@ -155,6 +160,9 @@
             </div>
             <div class="modifier_note less_pad">
                 <input type="checkbox" id="mute_timer_toggle" name="mute_timer_toggle" class="settings_check" onclick="mute('toggle');saveSettings();"><label for="mute_timer_toggle">Замутить Таймер</label>
+            </div>
+            <div class="modifier_note less_pad">
+                <input type="checkbox" id="timer_count_up" name="timer_count_up" class="settings_check" onclick="toggleCountup();saveSettings();"><label for="timer_count_up">Изменение направления таймера</label>
             </div>
             <hr>
             <div class="modifier_volume yfont white">Скорость</div>
@@ -253,7 +261,7 @@
         <span class="icon" onclick="showMaps()"></span>
 
         <div class="maps_title yfont white">Карты</div>
-        <div class="maps_image" onmouseenter="zoomMap(this)" onmouseleave="unZoomMap(this)" onmousemove="moveZoom(this,event)">
+        <div class="maps_image" onpointerenter="zoomMap(this)" onpointerleave="unZoomMap(this)" onpointermove="moveZoom(this,event)">
             <div class="map_image"></div>
             <div class="hover_zoom">+ Наведите курсор, чтобы увеличить</div>
         </div>
@@ -286,10 +294,10 @@
     </div>
 
     <div class="data">
-        <div class="menu">
+        <div id="menu" class="menu">
             <div class="tools-filter-buttons">
-                <button id="show_filter_button" class="filter_tool_button filter_tool_button_live">Фильтры</button>
-                <button id="show_tool_button" class="filter_tool_button filter_tool_button_back" onclick="toggleFilterTools()">Инструменты</button>
+                <button id="show_filter_button" class="filter_tool_button filter_tool_button_live" onclick="showMenu()">Фильтры</button>
+                <button id="show_tool_button" class="filter_tool_button filter_tool_button_back" onclick="toggleFilterTools();showMenu();">Инструменты</button>
             </div>
             <div id="tools-content" class="tools-content" style="display: none;">
                 <div class="timer_title yfont white">
@@ -297,7 +305,10 @@
                 </div>
                 <div class="timers">
                     <div class="timer_block">
-                        <div class="modifier_smudge_timer yfont white" onclick="toggle_timer()">Таймеры КД</div>
+                        <div class="modifier_smudge_timer yfont white" onclick="toggle_timer()">
+                            Благовония
+                            <div class="modifier_note_2"style="font-size: 7px;">('T' - Старт/Стоп)</div>
+                        </div>
                         <div class="line_labels" onclick="toggle_timer();send_timer();">
                             <div class="spirit_line_label">Дух</div>
                             <div class="demon_line_label">Демон</div>
@@ -314,11 +325,13 @@
                         <div id="time_left" onclick="toggle_timer();send_timer();">
                             <span id="minute">03</span>:<span id="second">00</span>
                         </div>
-                        <div class="modifier_note_2" onclick="toggle_timer();send_timer();">(Нажми 'T' Старт/Стоп)</div>
                     </div>
                     <hr>
                     <div class="timer_block">
-                        <div class="modifier_smudge_timer yfont white" onclick="toggle_cooldown_timer()">Таймер КД</div>
+                        <div class="modifier_smudge_timer yfont white" onclick="toggle_cooldown_timer()">
+                            Ожидание
+                            <div class="modifier_note_2"style="font-size: 7px;">('C' - Старт/Стоп)</div>
+                        </div>
                         <div class="line_labels" onclick="toggle_cooldown_timer();send_cooldown_timer();">
                             <div class="cooldown_demon_line_label">Демон</div>
                         </div>
@@ -333,7 +346,28 @@
                         <div id="time_left_cooldown" onclick="toggle_cooldown_timer();send_cooldown_timer();">
                             <span id="minute_cooldown">00</span>:<span id="second_cooldown">25</span>
                         </div>
-                        <div class="modifier_note_2" onclick="toggle_cooldown_timer();send_cooldown_timer();">(Нажми 'H' Старт/Стоп)</div>
+                    </div>
+                    <hr>
+                    <div class="timer_block">
+                        <div class="modifier_smudge_timer yfont white" onclick="toggle_hunt_timer();send_hunt_timer();">
+                            Охота
+                            <div class="modifier_note_2" style="font-size: 7px;">('H' - Старт/Стоп)</div>
+                        </div>
+                        <div class="line_labels" onclick="toggle_hunt_timer();send_hunt_timer();">
+                            <div class="hunt_cursed_line_label">Проклятие</div>
+                            <div class="hunt_size_label">K: S, O: L</div>
+                        </div>
+                        <div id="huntProgress" onclick="toggle_hunt_timer();send_hunt_timer();">
+                            <img src="imgs/play.png" id="play_hunt_button" class="play_button">
+                            <div id="huntProgressBar">
+                                <div id="huntProgressBarInner" class="bar"></div>
+                                <div class="normal_line"></div>
+                                <div class="cursed_line"></div>
+                            </div>
+                        </div>
+                        <div id="time_left_hunt" onclick="toggle_hunt_timer();send_hunt_timer();">
+                            <span id="minute_hunt">00</span>:<span id="second_hunt">50</span>
+                        </div>
                     </div>
                 </div>
                 <div class="modifier_title yfont white">
@@ -385,11 +419,30 @@
             </div>
             <div id="filter-content" class="filter-content">
                 <div class="evidence_title yfont white">
-                    Улика <select name="num_evidence" id="num_evidence" class="num_evidence" onchange="filter();flashMode();saveSettings();">
-                        <option value="3">3</option>
-                        <option value="2">2</option>
-                        <option value="1">1</option>
-                        <option value="0">0</option>
+                    Улика 
+                </div>
+
+                <select name="num_evidence" id="num_evidence" class="num_evidence" onchange="showCustom();filter();flashMode();updateMapDifficulty(this.value);saveSettings();">
+                    <option value="3A">Любитель (3)</option>
+                    <option value="3I">Средняя (3)</option>
+                    <option value="3">Профессионал (3)</option>
+                    <option value="2">Кошмар (2)</option>
+                    <option value="1">Безумие (1)</option>
+                    <option value="0">Апокалипсис (0)</option>
+                    <option value="-1">Специальная (?)</option>
+                </select>
+
+                <div id="custom_options" style="display: none;">
+                    <select name="cust_num_evidence" id="cust_num_evidence" class="cust_num_evidence" style="width: calc(50% - 2px); margin-right: 2px;" onchange="filter();flashMode();saveSettings();">
+                        <option value="3">Улика: 3</option>
+                        <option value="2">Улика: 2</option>
+                        <option value="1">Улика: 1</option>
+                        <option value="0">Улика: 0</option>
+                    </select>
+                    <select name="cust_hunt_length" id="cust_hunt_length" class="cust_num_evidence"  style="width: calc(50% - 2px); margin-left: 2px;" onchange="filter();updateMapDifficulty(this.value);saveSettings();">
+                        <option value="3A">Низко (Охота)</option>
+                        <option value="3I">Средне (Охота)</option>
+                        <option value="3">Высоко (Охота)</option>
                     </select>
                 </div>
                 <div id="game_mode" class="yfont white" style="display:none;">Рассудок</div>
@@ -444,6 +497,7 @@
             </div>
             <div id="active-users"><span id="current-version-label"></span> | <span id="active-users-label">Активные Пользователи: -</span></div>
             <div class="copyright" onclick="showInfo()"><img class="question" src="imgs/question.png">Инфо / Права</div>
+            <div id="close-menu-button" onclick="closeMenu()"></div>
             <button id="reset" class="yfont standard_reset" onclick="reset()" onmouseenter="checkResetButton()" onmouseleave="resetResetButton()">Сброс</button>
 
         </div>
@@ -464,7 +518,7 @@
             document.getElementById("settings_box").style.left = "calc(-60% - 40px)";
             document.getElementById("event_box").style.left = "calc(-60% - 40px)";
             document.getElementById("wiki_box").style.left = "calc(-60% - 40px)";
-            document.getElementById("maps_box").style.left = "calc(-60% - 40px)";
+            document.getElementById("maps_box").style.left = "calc(-100% + 60px)";
         }
         else{
             document.getElementById("settings_box").style.left = "-17px";
@@ -474,21 +528,21 @@
         }
     </script>
     <script src="themes/themes.js"></script>
-    <script src="scripts/audio_controller.js"></script>
-    <script src="scripts/metronome.js"></script>
-    <script src="scripts/timer.js"></script>
-    <script src="wiki/wiki.js"></script>
-    <script src="scripts/filter.js"></script>
-    <script src="scripts/wslink.js"></script>
-    <script src="scripts/zn.js"></script>
+    <script src="scripts-v2/audio_controller.js"></script>
+    <script src="scripts-v2/metronome.js"></script>
+    <script src="scripts-v2/timer.js"></script>
+    <script src="wiki-v2/wiki.js"></script>
+    <script src="scripts-v2/filter.js"></script>
+    <script src="scripts-v2/wslink.js"></script>
+    <script src="scripts-v2/zn.js"></script>
     <script src="events/events.js"></script>
-    <script src="scripts/voice_ru.js"></script>
-    <script src="scripts/voice_recognition.js"></script>
-    <script src="scripts/sparkles.js"></script>
+    <script src="scripts-v2/voice_ru.js"></script>
+    <script src="scripts-v2/voice_recognition.js"></script>
+    <script src="scripts-v2/sparkles.js"></script>
     <script>
         $(window).on('load', function() {
             let load_wiki = new Promise((resolve, reject) => {
-                $("#wiki-body").load("wiki/wiki.html")
+                $("#wiki-body").load("wiki-v2/wiki.html")
                 resolve("Ghost data loaded")
             })
             Promise.all([load_wiki,checkLink()])

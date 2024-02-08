@@ -7,8 +7,8 @@
 
     .wiki-img-block{
         display: inline; 
-        padding: 6px;
-        width: 90px;
+        padding: 5px; 
+        width: calc(25% - 10px);
         height: 125px;
         text-align: center;
     }
@@ -210,8 +210,8 @@
 
     .wiki-img-block{
         display: inline; 
-        padding: 5px;
-        width: 170px;
+        padding: 10px; 
+        width: calc(25% - 20px);
         height: 240px;
         text-align: center;
     }
