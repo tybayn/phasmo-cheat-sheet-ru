@@ -21,8 +21,8 @@ evi_icons = {
 behavior_titles = {
     "<Особенности>":"<div class='dtitle'><i>Особенности</i><div class='ddash'></div></div>",
     "<Поведение>":"<div class='dtitle'><i>Поведение</i><div class='ddash'></div></div>",
-    "<Охота и Рассудок>":"<div class='dtitle'><i>Охота и Рассудок</i><div class='ddash'></div></div>",
-    "<Охота и Скорость>":"<div class='dtitle'><i>Охота и Скорость</i><div class='ddash'></div></div>",
+    "<Рассудок для охоты>":"<div class='dtitle'><i>Рассудок для охоты</i><div class='ddash'></div></div>",
+    "<Скорость во время охоты>":"<div class='dtitle'><i>Скорость во время охоты</i><div class='ddash'></div></div>",
     "<Улика>":"<div class='dtitle'><i>Улика</i><div class='ddash'></div></div>"
 }
 
