@@ -1840,6 +1840,7 @@ hr{
         font-size: 10px;
         text-align: center;
         display: flex;
+        flex-wrap: wrap;
         justify-content: space-around;
         align-items: center;
     }
